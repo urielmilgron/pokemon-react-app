@@ -1,4 +1,4 @@
-const pokemons = [{
+const pokemones = [{
     "abilities": [
       {
         "ability": {
@@ -12137,3 +12137,14 @@ const pokemons = [{
     ],
     "weight": 60
   }]
+
+  //Creamos una función que en realidad es un método para obtener los pokemons
+  export const getPokemons = () => {
+    //Entonces, retornamos una promesa, en este caso, siempre se va a resolver, que diga =>
+    //cuando se resuelva, retorname en la promesa resuelta los pokemones dentro de la constate pokemones que está arriba de todo jeje
+    return new Promise((resolve) => 
+    setTimeout(()=>{
+        resolve(pokemones)
+    }, 2000)
+    )
+  }
