@@ -5,7 +5,7 @@ const PokemonItem = ( { pokemon }) => {
     return (
         <div>
             <h2>{name}</h2>
-            <img src={sprites.back_default} alt="" />
+            <img src={sprites.back_default} alt={sprites.back_default} />
         </div>
     );
 }

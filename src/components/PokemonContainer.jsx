@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { getPokemons } from '../asyncMock';
 import PokemonList from './PokemonList';
+import PokemonSearch from './PokemonSearch';
 
 const PokemonContainer = () => {
     //Usamos useState para guardar los componentes dentro de un estado, para que cuando haya algo, se muestren
@@ -13,6 +14,7 @@ const PokemonContainer = () => {
     //que darle nombres con respecto al contexto, se llama setPokemons
 
     const [pokemons, setPokemons] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('')
     //useEffect se usa para cuando llamamos a una api. Se cargan los datos luego de que el componente
     //se renderice.
    console.log(pokemons)
@@ -21,10 +23,14 @@ const PokemonContainer = () => {
         setPokemons(pokemones)
     })
   })
-  
+  const handleSearch = term => {
+    setSearchTerm(term)
+  }
+
     return (
         <div>
-            <PokemonList pokemons={pokemons}/>
+            <PokemonSearch onSearch={handleSearch}/>
+            <PokemonList pokemons={pokemons} searchTerm={searchTerm} />
         </div>
     );
 }
